@@ -180,23 +180,114 @@
 ### 1. NPM 챕터 소개
 
 - NPM: Node Package Manager. 라이브러리 관리자.
-- Bring the best of open source to you, your team, and your company.
-- npm init : 프로젝트 이름, 버전등 프로젝트 정보, 라이브러리 정보들이 있는 package.json이라는 파일이 생성됨.
-- npm install '라이브러리 이름' : 라이브러리를 프로젝트에 설치함.
+- 'Bring the best of open source to you, your team, and your company.'
+- NPX vs NPM vs yarn : npm은 특정 라이브러리를 다운로드 받아서 설치하는 개념. npx는 다운받지 않고 바로 실행할 수 있게 해줌. yarn은 npm의 문제점을 개선하기 위해 페이스북에서 만듦. 프론트앤드는 yarn을 많이 쓰며 npm과 yarn은 혼용 가능
+
+```
+// 프로젝트 이름, 버전등 프로젝트 정보, 라이브러리 정보들이 있는 package.json이라는 파일이 생성됨.
+$ npm init
+
+// 라이브러리를 프로젝트에 설치함.
+$ npm install '라이브러리 이름'
+```
 
 ### 2. NPM 시작하기
 
+- https://docs.npmjs.com/cli/v7/commands npm 명령어
+
+```
+// npm 명령어
+$ npm
+
+// npm 버전정보
+$ npm -v
+
+// node 프로젝트에 대한 package.json 생성. --yes를 붙이면 기본옵션으로 생성
+$ npm init --yes
+
+// 직접 만든 스크립트 실행. package.json 의 scripts 에 추가시킨 스크립트를 실행할 수 있음
+$ npm run '직접 만든 스크립트 명'
+```
+
 ### 3. 소프트웨어 라이센스란? 꿀사이트 🔖
+
+- https://spdx.org/licenses/ ISC License 설명
 
 ### 4. 라이브러리 버전관리? 꿀사이트 🔖
 
+- https://docs.npmjs.com/about-semantic-versioning 관련 문서
+- 버전 예시 ) 1.0.0, 1.0.1, 1.0.2, ..., 1.1.0 ,..., 2.0.0
+
+  - Major 기능 대거 수정. 추가
+  - Minor 작은 기능 추가
+  - Patch 사소한 이슈
+
+- package.json 에서 디펜던씨 라이브러리 버전 지정하기
+  - Patch : 1.0 or 1.0.x or ~1.0.4
+  - Minor : 1 or 1.x or ^1.0.4
+  - Major : \* or x
+  - 예시
+    ```
+    "dependencies": {
+        "my_dep": "^1.0.0",
+        "another_dep": "~2.2.0"
+    },
+    ```
+  - https://semver.npmjs.com/ 잘 지정했는지 테스트
+
 ### 5. 글로벌로 설치 하고 목록 확인
+
+```
+// -h로 옵션들과 내용을 확인
+$ npm i -h
+
+// 프로젝트에 받지 않고 컴퓨터 전체에 설치하기
+$ npm i -g
+
+// 프로젝트에 설치된 라이브러리 확인
+$ npm list
+
+// 컴퓨터 전체에 설치된 라이브러리 확인
+$ npm list -g
+
+// dept 를 0 으로 확인 (라이브러리가 설치한 라이브러리 말고 직접 설치한 것만 확인)
+$ npm list -g --dept=0
+```
 
 ### 6. 프로젝트 라이브러리 확인, 설치 및 삭제
 
+```
+// 설치
+$ npm i 라이브러리
+
+// 삭제
+$ npm un 라이브러리
+```
+
+- package-lock.json : 정확히 어떤 버전의 라이브러리를 사용했는지 확인할 수 있는 파일
+
 ### 7. 버전 업데이트 하기
 
+```
+// 라이브러리 정보 확인
+$ npm view
+
+// 라이브러리 중 업데이트 할 수 있는 것 목록
+// 현재버젼, package.json에 작성한 권장 버전, 가장 최신 버전이 표시됨
+$ npm outdated
+
+// 특정 라이브러리 업데이트하기
+$ npm update 라이브러리명
+```
+
 ### 8. 개발 모드로 설치하기 + 좋은 툴 설치
+
+- nodemon : 노드 프로젝트 작업시 파일을 수정하면 저절로 서버가 재시작되는 아주 유용한 개발 도구. nodemon 파일명 으로 실행하면 됨
+
+```
+// --save-dev : 배포에 포함되지 않는 개발용 도구 설치 옵션
+$ npm i nodemon --save-dev
+```
 
 # 6. Debugging 치명적인 매력
 
