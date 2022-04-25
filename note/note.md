@@ -342,11 +342,39 @@ $ npm i nodemon --save-dev
 
 ### 2. HTTP 역사와 HTTPs, 그리고 V2, V3
 
+- HTTP : Hypertext Transfer Protocol. 클라이언트와 서버가 데이터를 주고받을 때 request-response 형태로 protocol
+- HTTPs : Hypertext Transfer Protocol 'Secure'
+- HTTP는 암호화가 안되어있어 제3자가 데이터를 가로채서 읽을 수 있음
+  > 1989 HTTP
+  > <br> 1994 HTTPS
+  > <br> 1997 HTTP/HTTPS v1 텍스트 형태, 압축되지 않은 해더, 한번에 한 파일
+  > <br> 2015 HTTPS v2 텍스트가 아닌 바이너리 형태, 압축된 헤더, 한번에 여러 파일
+  > <br> 2019~ HTTPS v3 TCP -> UDT
+  - 현재 v2가 가장 많이 쓰이며 앞으로 설명할 것들도 v2에 대한 설명임
+- TCP 커넥션이 연결됨
+  <br> -> client가 server에게 request
+  <br> -> server가 client에게 response
+  <br> -> TCP 커넥션이 닫힘
+
 ### 3. Status Code 잘 활용하기
+
+- 1xx: information
+- 2xx: successful
+- 3xx: redirection
+- 4xx: client error
+- 5xx: server error
+- https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 
 ### 4. Request Method + 면접 질문!
 
+- 서버에 있는 데이터를 변경하는 요청은 post, put, delete, patch 가 있음
+- idempotent(멱등성): 동일한 요청을 여러번 했을 때 항상 서버를 동일한 상태로 유지할 수 있는 지? 예를 들면 post 메소드는 서버에 데이터를 만드는것이므로 idempotent: no (여러개가 만들어질 수도 있으니까), put은 idempotent: yes
+  (https://developer.mozilla.org/ko/docs/Glossary/Idempotent)
+- https://developer.mozilla.org/ko/docs/Web/HTTP/Methods
+
 ### 5. Headers의 오해와 진실
+
+- https://developer.mozilla.org/ko/docs/Web/HTTP/Headers
 
 ### 6. 실제 예제 분석해 보기
 
