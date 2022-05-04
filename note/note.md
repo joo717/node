@@ -409,11 +409,37 @@ _node-server/3-json.js_
 
 ### 2. 진정한 Restful API 도대체 뭘까?
 
+- RESTful API
+  <br> REST: Representation State Transfer
+  <br> API: Application Programing Interface
+- RESTful System의 6 조건
+  1. Client-server architecture
+  2. Statelessness
+  3. Cacheavility
+  4. Layered System
+  5. Code on demand (선택)
+  6. Uniform interface (RESTful한 시스템인지 아닌지 결정하는 중요한 요소)
+- Uniform interface의 4 특징
+  1. Resource Identification in requests
+  2. Resource manipulation through representations
+  3. Self-descriptive messages
+  4. Hypermedia as the engine of application state (HATEOAS) (하지만 실제로 이 특징을 가진 서버는 별로 없다)
+
 ### 3. Web APIs 디자인 💩 vs ✨
+
+- GET /posts/getPosts => GET /posts
+- GET /posts/createPost => POST /posts
+- GET /posts/1/tags => GET /tags/?postId=1
 
 ### 4. 보통의 Rest APIs 예제 (기업 사례)
 
+- Uniform interface의 4 특징 중 마지막 특징을 안 지킨 점이 아쉽다
+- https://developers.google.com/youtube/v3/docs/videos/list
+
 ### 5. 진정한 Rest APIs 예제 (기업 사례)
+
+- 드물게도.. Uniform interface의 4 특징 중 마지막 특징을 지켰다
+- https://developer.github.com/v3/
 
 # 11. Express.js 가좌아
 
