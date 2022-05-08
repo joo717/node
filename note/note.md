@@ -531,6 +531,45 @@ res.send(...)
 
 ### 2. 요구 사항 분석, Rest APIs 디자인 하기 ❓
 
+- 로그인 로그아웃은 아직
+- 디비 말고 메모리에 저장하도록 구현
+- 요구 사항: 전체트윗 가져오기, 특정 유저 트윗 가져오기, 특정 트윗 가져오기, 새 트윗, 트윗 삭제, 트윗 편집
+
+---
+
+Tweets API
+
+- Tweet Schema <br>
+  { <br>
+  id: string, <br>
+  text: string, <br>
+  createdAt: Date, <br>
+  name: string, <br>
+  url: string (optional) <br>
+  }
+
+1. GET /tweets
+   <br> res 200(OK)
+   <br> {[tweet,tweet,...]}
+2. GET /tweets?userId=:userId
+   <br> res 200(OK)
+   <br> {[tweet,tweet,...]}
+3. GET /tweets/:id
+   <br> res 200(OK)
+   <br> {[tweet,tweet,...]}
+4. POST /tweets
+   <br> req body { text, name, username, url(optional) }
+   <br> res 201(created)
+   <br> { tweet }
+5. DELETE /tweets/:id
+   <br> res 204(No Content)
+6. PUT /tweets/:id
+   <br> req body { tweet }
+   <br> res 200(OK)
+   <br> { tweet }
+
+---
+
 ### 3. 요구 사항 분석, Rest APIs 디자인 하기 💡
 
 ### 4. Rest APIs 개발을 위한 포스트맨 셋업
