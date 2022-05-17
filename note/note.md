@@ -610,6 +610,9 @@ Tweets API
 
 ### 2. Validation 라이브러리 소개 및 실습
 
+- express-validator 라이브러리 사용
+- _1-node/8-validation/app.js_
+
 ### 3. Validation 코드 리팩토링 하기
 
 ### 4. Sanitization이란? 중요성에 대해

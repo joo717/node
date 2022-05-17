@@ -1,6 +1,6 @@
 export let tweets = [
   {
-    id: 1,
+    id: "1",
     text: "아자자",
     createdAt: Date.now().toString(),
     name: "Lemon",
@@ -8,7 +8,7 @@ export let tweets = [
     url: "https://i5.walmartimages.ca/images/Enlarge/094/504/6000200094504.jpg",
   },
   {
-    id: 2,
+    id: "2",
     text: "It's me Bob",
     createdAt: Date.now().toString(),
     name: "Bob",
